@@ -1,34 +1,61 @@
 {
-  "hash": "76332158",
-  "configHash": "f5f6768c",
-  "lockfileHash": "aee219d0",
-  "browserHash": "ebb6ebb8",
+  "hash": "a14b2a9e",
+  "configHash": "f59aab1d",
+  "lockfileHash": "e184b808",
+  "browserHash": "57cce8be",
   "optimized": {
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "b441f5e6",
+      "fileHash": "f1eec8f1",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "d6c1a98f",
+      "fileHash": "d204ea26",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "e08dafa1",
+      "fileHash": "1f148b53",
+      "needsInterop": false
+    },
+    "@angular/common/http": {
+      "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
+      "file": "@angular_common_http.js",
+      "fileHash": "821bec10",
+      "needsInterop": false
+    },
+    "rxjs": {
+      "src": "../../../../../node_modules/rxjs/dist/esm5/index.js",
+      "file": "rxjs.js",
+      "fileHash": "51e98d2b",
+      "needsInterop": false
+    },
+    "@angular/common": {
+      "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "871e2ae3",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-DFEYT2BF": {
-      "file": "chunk-DFEYT2BF.js"
+    "chunk-C67LEXHU": {
+      "file": "chunk-C67LEXHU.js"
     },
-    "chunk-LF2LKXYJ": {
-      "file": "chunk-LF2LKXYJ.js"
+    "chunk-NDAWTX56": {
+      "file": "chunk-NDAWTX56.js"
+    },
+    "chunk-6AM2523Y": {
+      "file": "chunk-6AM2523Y.js"
+    },
+    "chunk-4MZAX6BM": {
+      "file": "chunk-4MZAX6BM.js"
+    },
+    "chunk-FRPRYHQD": {
+      "file": "chunk-FRPRYHQD.js"
     }
   }
 }

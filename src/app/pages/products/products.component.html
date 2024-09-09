@@ -1,0 +1,35 @@
+<div class="grid grid-cols-6">
+  <ul class="col-span-1">
+    @for (category of categoryList$ | async ; track $index) {
+    <li>
+      <button
+        (click)="getProductByCategory(category.categoryId)"
+        class="bg-green-500 text-green-50 px-2 py-1 mx-2 my-1 rounded-sm"
+      >
+        {{ category.categoryName }}
+      </button>
+    </li>
+    }
+  </ul>
+  <ul class="col-span-5 flex gap-3 flex-wrap">
+    @for (product of productList(); track $index) {
+    <li class="border-amber-700 border-solid rounded border p-4">
+      <img
+        class="h-[120px] w-[200px]"
+        [src]="product.productImageUrl"
+        alt="Product Image"
+      />
+      <span class="block top-0 right-0 bg-purple-300 text-purple-700 text-sm">{{
+        product.categoryName
+      }}</span>
+      <h5 class="font-bold">{{ product.productName }}</h5>
+      <h6 class="font-bold text-amber-700">R${{ product.productPrice }}</h6>
+      <button
+        class="px-4 py-2 border border-solid border-yellow-300 bg-amber-600 text-yellow-50 rounded"
+      >
+        Add to Cart
+      </button>
+    </li>
+    }
+  </ul>
+</div>
