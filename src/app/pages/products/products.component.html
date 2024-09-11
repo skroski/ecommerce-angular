@@ -1,3 +1,23 @@
+<!-- Abra a modal usando o método ID.showModal() method -->
+<button
+  class="btn btn-secondary"
+  onclick="my_modal_1.showModal()"
+  #registerModal
+>
+  Abrir Modal
+</button>
+<dialog id="my_modal_1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Olá E-commerce!</h3>
+    <p class="py-4">Press ESC key or click the button below to close</p>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Fechar</button>
+      </form>
+    </div>
+  </div>
+</dialog>
 <div class="grid grid-cols-6">
   <ul class="col-span-1">
     @for (category of categoryList$ | async ; track $index) {

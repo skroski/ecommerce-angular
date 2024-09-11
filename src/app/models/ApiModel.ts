@@ -1,4 +1,4 @@
-export interface Product {
+export interface ApiModel {
     message: string,
     result: boolean,
     data: any
@@ -8,6 +8,13 @@ export interface CategoryProduct {
     categoryName: string,
     parentCategoryId: number,
     userId: number
+}
+
+export interface Customer {
+    CustId: number;
+    Name: string;
+    MobileNo: string;
+    Password: string;
 }
 export interface ProductList {
     productId: number

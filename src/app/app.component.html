@@ -1,2 +1,50 @@
 <app-navbar></app-navbar>
+
+<button class="btn btn-accent" (click)="openRegisterModal()">Accent</button>
+
+<!-- Abra a modal usando o método ID.showModal() method -->
+<button
+  class="btn btn-secondary"
+  onclick="registerModal.showModal()"
+  #registerModal
+>
+  Cadastro
+</button>
+<dialog id="registerModal" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Olá E-commerce!</h3>
+    <p class="py-4">Press ESC key or click the button below to close</p>
+    <div class="modal-action">
+      <form
+        [formGroup]="registerFormGroup"
+        (submit)="openRegisterModal()"
+        method="dialog"
+      >
+        <label for="name">Nome: </label>
+        <input class="input-md" id="name" type="text" formControlName="Name" />
+        <br />
+        <label for="mobile">Celular: </label>
+        <input
+          class="input-md"
+          id="mobile"
+          type="text"
+          formControlName="MobileNo"
+        />
+        <br />
+        <label for="password">Senha: </label>
+        <input
+          class="input-md"
+          id="password"
+          type="text"
+          formControlName="Password"
+        />
+        <button class="btn btn-accent" (click)="registerNewCustomer()">
+          Registrar
+        </button>
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Fechar</button>
+      </form>
+    </div>
+  </div>
+</dialog>
 <router-outlet></router-outlet>

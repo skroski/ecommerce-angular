@@ -1,7 +1,7 @@
 
 import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { MasterService } from '../../services/master.service';
-import { Product, ProductList, CategoryProduct } from './../../models/Product';
+import { ApiModel, ProductList, CategoryProduct } from '../../models/ApiModel';
 import { map, Observable, Subscription } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 
@@ -30,7 +30,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   loadAllProducts(): void {
     this.subscriptionList.push(
-      this.masterService.getAllProducts().subscribe((response: Product) => {
+      this.masterService.getAllProducts().subscribe((response: ApiModel) => {
         //this.productList = response.data;
         this.productList.set(response.data);
       }));
@@ -38,7 +38,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   getProductByCategory(id: number) {
     console.log(id);
 
-    this.masterService.getAllProductsByCategoryId(id).subscribe((response: Product) => {
+    this.masterService.getAllProductsByCategoryId(id).subscribe((response: ApiModel) => {
       this.productList.set(response.data);
     })
   }
