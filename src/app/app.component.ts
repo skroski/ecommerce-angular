@@ -31,7 +31,6 @@ export class AppComponent {
     }
   }
   registerNewCustomer() {
-    debugger
     const formsValues: Customer =
     {
       CustId: 0,
