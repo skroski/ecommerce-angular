@@ -1,7 +1,7 @@
 import { Component, ElementRef, inject, OnInit, ViewChild, viewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./components/navbar/navbar.component";
-import { ApiModel, Customer, LoginModel } from './models/ApiModel';
+import { ApiModel, CartData, Customer, LoginModel } from './models/ApiModel';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MasterService } from './services/master.service';
 import { Constant } from './constant/constant';
@@ -24,6 +24,8 @@ export class AppComponent implements OnInit {
 
   @ViewChild('registerModal') registerModal: ElementRef | undefined;
   @ViewChild('loginModal') loginModal: ElementRef | undefined;
+
+
 
   private formBuilderRegister = inject(FormBuilder);
   private formBuilderLogin = inject(FormBuilder);

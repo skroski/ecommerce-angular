@@ -9,7 +9,18 @@ export interface CategoryProduct {
     parentCategoryId: number,
     userId: number
 }
-
+export interface CartData {
+    cartId: number
+    custId: number
+    productId: number
+    quantity: number
+    productShortName: string
+    addedDate: string
+    productName: string
+    categoryName: string
+    productImageUrl: string
+    productPrice: number
+}
 export class Customer {
     custId: number;
     name: string;
@@ -22,6 +33,7 @@ export class Customer {
         this.Password = '';
     }
 }
+
 export class CartModel {
     CartId: number;
     CustId: number;

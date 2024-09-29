@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Customer, ApiModel, LoginModel, CartModel } from '../models/ApiModel';
 
 @Injectable({
@@ -8,6 +8,8 @@ import { Customer, ApiModel, LoginModel, CartModel } from '../models/ApiModel';
 })
 export class MasterService {
   apiUrl: string = 'https://freeapi.miniprojectideas.com/api/BigBasket/';
+
+  onCartAdded: Subject<boolean> = new Subject<boolean>();
   private http = inject(HttpClient)
 
   getAllProducts(): Observable<ApiModel> {
@@ -32,5 +34,9 @@ export class MasterService {
   addToCart(obj: CartModel): Observable<ApiModel> {
     const url = `${this.apiUrl}AddToCart`;
     return this.http.post<ApiModel>(url, obj);
+  }
+  getCartProductsByCustomerId(loggedUserId: number): Observable<ApiModel> {
+    const url = `${this.apiUrl}GetCartProductsByCustomerId?id=${loggedUserId}`
+    return this.http.get<ApiModel>(url);
   }
 }

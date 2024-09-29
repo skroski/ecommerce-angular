@@ -28,6 +28,21 @@
         class="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow"
       >
         <div class="card-body">
+          @for (product of cartData ; track $index) {
+          <img
+            [src]="product.productImageUrl"
+            alt="{{ product.productName }}"
+          />
+          <h6>{{ product.categoryName }}</h6>
+          <h3>{{ product.productName }}</h3>
+          <span class="text-lg font-bold">${{ product.productPrice }}</span>
+          <span class="text-md text-amber-700"
+            >Quantidade: {{ product.quantity }}</span
+          >
+          <button class="btn btn-sm btn-danger btn-block">
+            Remover do Carrinho
+          </button>
+          }
           <span class="text-lg font-bold">8 Items</span>
           <span class="text-info">Subtotal: $999</span>
           <div class="card-actions">
