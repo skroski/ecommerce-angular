@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Customer, ApiModel } from '../models/ApiModel';
+import { Customer, ApiModel, LoginModel, CartModel } from '../models/ApiModel';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +22,15 @@ export class MasterService {
   }
   registerNewCustomer(obj: Customer): Observable<ApiModel> {
     const url = `${this.apiUrl}RegisterCustomer`;
+    return this.http.post<ApiModel>(url, obj);
+  }
+
+  onLogin(obj: LoginModel): Observable<ApiModel> {
+    const url = `${this.apiUrl}Login`;
+    return this.http.post<ApiModel>(url, obj);
+  }
+  addToCart(obj: CartModel): Observable<ApiModel> {
+    const url = `${this.apiUrl}AddToCart`;
     return this.http.post<ApiModel>(url, obj);
   }
 }

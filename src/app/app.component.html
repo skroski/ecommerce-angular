@@ -1,26 +1,32 @@
 <app-navbar></app-navbar>
+@if (loggedUserData.custId == 0) {
 
-<button class="btn btn-accent" (click)="openRegisterModal()">Accent</button>
-
-<!-- Abra a modal usando o método ID.showModal() method -->
-<button
-  class="btn btn-secondary"
-  onclick="registerModal.showModal()"
-  #loginModal
->
-  Login Modal
+<button class="btn btn-accent" onclick="loginModal.showModal()">
+  Login Accents
 </button>
+<button class="btn btn-secondary" onclick="registerModal.showModal()">
+  Register Modal
+</button>
+} @else {
+<button class="btn btn-accent" onclick="loginModal.showModal()">
+  {{ loggedUserData.name }}
+</button>
+<button class="btn btn-warning" (click)="logOff()" #registerModal>
+  LogOff
+</button>
+
+}
 <dialog id="loginModal" class="modal">
   <div class="modal-box">
     <h3 class="text-lg font-bold">Login Modal!</h3>
-    <p class="py-4">Press ESC key or click the button below to close</p>
+    <p class="py-4">Pressione ESC ou clique no botão Fechar</p>
     <div class="modal-action">
       <form
-        [formGroup]="registerFormGroup"
-        (submit)="openRegisterModal()"
+        [formGroup]="loginFormGroup"
+        (submit)="openLoginModal()"
         method="dialog"
       >
-        <label for="UserName">Nome do Usuário: </label>
+        <label for="UserName">Celular: </label>
         <input
           class="input-md"
           id="UserName"
@@ -36,23 +42,14 @@
           type="text"
           formControlName="UserPassword"
         />
-        <button class="btn btn-accent" (click)="registerNewCustomer()">
-          Registrar
-        </button>
+        <button class="btn btn-accent" (click)="onLoginUser()">Logar</button>
         <!-- if there is a button in form, it will close the modal -->
         <button class="btn">Fechar</button>
       </form>
     </div>
   </div>
 </dialog>
-<!-- Abra a modal usando o método ID.showModal() method -->
-<button
-  class="btn btn-secondary"
-  onclick="registerModal.showModal()"
-  #registerModal
->
-  Register Modal
-</button>
+
 <dialog id="registerModal" class="modal">
   <div class="modal-box">
     <h3 class="text-lg font-bold">Olá E-commerce!</h3>
