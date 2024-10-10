@@ -20,16 +20,9 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   categoryList$: Observable<CategoryProduct[]> = new Observable<CategoryProduct[]>();
   subscriptionList: Subscription[] = [];
-  loggedUserData: Customer = new Customer();
-
   masterService = inject(MasterService);
-  constructor() {
-    const isUser = localStorage.getItem(Constant.LOCAL_KEY)
-    if (isUser != null) {
-      const parseObj = JSON.parse(isUser);
-      this.loggedUserData = parseObj;
-    }
-  }
+
+
   ngOnInit(): void {
     this.loadAllProducts();
     this.categoryList$ = this.masterService.getAllCategory().pipe(
@@ -57,7 +50,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   onAddToCart(id: number) {
     const newCartObj: CartModel = new CartModel();
     newCartObj.ProductId = id;
-    newCartObj.CustId = this.loggedUserData.custId;
+    newCartObj.CustId = this.masterService.loggedUserData.custId
     this.masterService.addToCart(newCartObj).subscribe((response: ApiModel) => {
       if (response.result) {
         alert('Item adicionado ao carrinho!');

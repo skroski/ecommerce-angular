@@ -1,5 +1,5 @@
 import { Component, ElementRef, inject, OnInit, ViewChild, viewChild } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { ApiModel, CartData, Customer, LoginModel } from './models/ApiModel';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -9,7 +9,7 @@ import { Constant } from './constant/constant';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, ReactiveFormsModule],
+  imports: [RouterOutlet, NavbarComponent, ReactiveFormsModule, RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
